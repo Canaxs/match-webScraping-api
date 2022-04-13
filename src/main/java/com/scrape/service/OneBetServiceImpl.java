@@ -47,14 +47,14 @@ public class OneBetServiceImpl extends Thread implements OneBetService {
         webClient.getCookieManager().setCookiesEnabled(true);
 
         driver.get(url);
-        Thread.sleep(10000);
+        Thread.sleep(3000);
         //HtmlPage myPage = webClient.getPage(url);
         //webClient.waitForBackgroundJavaScript(30*1000);
         Document document = Jsoup.parse(driver.getPageSource(),url);
 
          Elements body = document.select("body div.container #content div.page-content #BultenContainer div.bultein-list-wrapper #bulten-event-list-container section");
         for (Element row:body) {
-           String teams = row.select("div.odd-col div.code-time-name div.name a").text();
+            String teams = row.select("div.odd-col div.code-time-name div.name a").text();
             String ms1 = row.select("div.odd-col div.odds-content dl dd:nth-of-type(2) div.d-table div.body div.row div.cell:nth-of-type(1)").text();
             String ms0 = row.select("div.odd-col div.odds-content dl dd:nth-of-type(2) div.d-table div.body div.row div.cell:nth-of-type(2)").text();
             String ms2 = row.select("div.odd-col div.odds-content dl dd:nth-of-type(2) div.d-table div.body div.row div.cell:nth-of-type(3)").text();

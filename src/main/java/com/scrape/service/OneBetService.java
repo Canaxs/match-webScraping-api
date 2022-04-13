@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface OneBetService {
 
-    List<Bet> getList() throws IOException;
+    List<Bet> getList() throws IOException, InterruptedException;
 
 }

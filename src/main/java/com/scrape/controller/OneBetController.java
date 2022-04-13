@@ -19,7 +19,7 @@ public class OneBetController {
     OneBetService oneBetService;
 
     @GetMapping
-    private List<Bet> getAll() throws IOException {
+    private List<Bet> getAll() throws IOException, InterruptedException {
         return oneBetService.getList();
     }
 
